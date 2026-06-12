@@ -37,11 +37,11 @@ Aryx_LightFighter1 addweapon3 AShM2_single
 Aryx_LightFighter1 addweapon3 AShM3_single
 Aryx_LightFighter1 addweapon3 ARM1_mini_double
 Aryx_LightFighter1 addweapon3 JammingPod1_mini_P
-Aryx_LightFighter1 addweapon3 P_DropTank1
+Aryx_LightFighter1 addweapon3 P_DropTank1_single
 Aryx_LightFighter1 removeweapon3 AAM1_single
 Aryx_LightFighter1 removeweapon3 AAM2_single
 Aryx_LightFighter1 removeweapon3 AAM3_single
-Aryx_LightFighter1 removeweapon3 AGM1_double
+Aryx_LightFighter1 removeweapon3 AGM1_double_compact
 Aryx_LightFighter1 removeweapon3 bomb_125_double
 Aryx_LightFighter1 removeweapon3 bomb_125_triple
 Aryx_LightFighter1 removeweapon3 bomb_250_single
@@ -51,6 +51,7 @@ Aryx_LightFighter1 removeweapon3 AGM_heavy_single
 Aryx_LightFighter1 addweapon4 AAM4_single
 Aryx_LightFighter1 addweapon4 AGM1_triple
 Aryx_LightFighter1 addweapon4 bomb_250_single
+Aryx_LightFighter1 addweapon4 bomb_250_glide_single
 Aryx_LightFighter1 addweapon4 bomb_125_triple
 Aryx_LightFighter1 addweapon4 bomb_125HD_triple
 Aryx_LightFighter1 addweapon4 bomb_glide1_triple
@@ -63,6 +64,6 @@ Aryx_LightFighter1 removeweapon4 AAM3_single
 Aryx_LightFighter1 removeweapon4 bomb_125_single
 Aryx_LightFighter1 removeweapon4 bomb_125_double
 Aryx_LightFighter1 removeweapon4 bomb_glide1_double
-Aryx_LightFighter1 removeweapon4 AGM1_double
+Aryx_LightFighter1 removeweapon4 AGM1_double_compact
 
 Aryx_LightFighter1 FlareEjector ammo modify 100
