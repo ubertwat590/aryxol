@@ -12,6 +12,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [BepInPlugin("com.ubertwat590.aryxol", "aryxol", "1.0.0")]
+[BepInDependency("com.offiry.qol")]
+[BepInDependency("com.nikkorap.blueprinter")]
 public class AryxolMod : BaseUnityPlugin
 {
     private const BindingFlags Flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
@@ -30,7 +32,6 @@ public class AryxolMod : BaseUnityPlugin
         hideFlags = HideFlags.HideAndDontSave;
         new Harmony("com.ubertwat590.aryxol").PatchAll();
         Init();
-        SceneManager.sceneLoaded += (s, m) => _cache.Clear();
     }
 
     private void Init()
@@ -47,6 +48,9 @@ public class AryxolMod : BaseUnityPlugin
 
     private IEnumerator Run(string data)
     {
+        yield return new WaitForSeconds(10f);
+        if (Find("Aryx_LightFighter1") != null) Find("Aryx_LightFighter1").name = "Aryx_LightFighter"; else Logger.LogWarning("Not found");
+
         foreach (var line in data.Split('\n').Select(l => l.Trim()))
         {
             if (string.IsNullOrEmpty(line) || line.StartsWith("#")) continue;
@@ -235,7 +239,6 @@ public class AryxolMod : BaseUnityPlugin
     private static GameObject Find(string p)
     {
         if (string.IsNullOrEmpty(p)) return null;
-        if (_cache.TryGetValue(p, out var cached)) return cached;
 
         var parts = p.Split('/');
         var roots = Resources.FindObjectsOfTypeAll<GameObject>().Where(g => g.transform.parent == null && g.name == parts[0]);
@@ -250,7 +253,7 @@ public class AryxolMod : BaseUnityPlugin
                 if (!t) { ok = false; break; }
                 cur = t.gameObject;
             }
-            if (ok) return _cache[p] = cur;
+            if (ok) return cur;
         }
         return null;
     }
@@ -338,6 +341,4 @@ public class AryxolMod : BaseUnityPlugin
     private string GetPath(Transform t) => t.parent ? GetPath(t.parent) + "/" + t.name : t.name;
     private WeaponMount GetWep(string n) => Resources.Load<WeaponMount>(n) ?? Resources.FindObjectsOfTypeAll<WeaponMount>().FirstOrDefault(x => x.name.Equals(n, StringComparison.OrdinalIgnoreCase));
     private Type GetType(string n) => AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()).FirstOrDefault(t => typeof(Component).IsAssignableFrom(t) && (t.Name == n || t.FullName == n)) ?? Type.GetType($"UnityEngine.{n}, UnityEngine");
-
-    private static readonly Dictionary<string, GameObject> _cache = new Dictionary<string, GameObject>();
 }
