@@ -1,3 +1,8 @@
+#
+#
+#
+#
+#
 Aryx_LightFighter1 addweapon2 AGM_heavy_internalx2
 Aryx_LightFighter1 addweapon2 AAM4_internalx2
 Aryx_LightFighter1 addweapon2 bomb_glide1_quad_internal
@@ -55,3 +60,9 @@ Aryx_LightFighter1 addweapon4 ARM1_mini_single
 Aryx_LightFighter1 addweapon4 P_FlarePod1
 Aryx_LightFighter1 addweapon4 Rocket1Pod_single
 Aryx_LightFighter1 removeweapon4 AAM3_single
+Aryx_LightFighter1 removeweapon4 bomb_125_single
+Aryx_LightFighter1 removeweapon4 bomb_125_double
+Aryx_LightFighter1 removeweapon4 bomb_glide1_double
+Aryx_LightFighter1 removeweapon4 AGM1_double
+
+Aryx_LightFighter1 FlareEjector ammo modify 100
